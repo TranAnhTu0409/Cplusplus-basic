@@ -36,8 +36,7 @@ string giaiMa(string banMa, string key) {
 }
 
 int main() {
-    string banRo;
-    string key;
+    string banRo, key;
 
     cout << "Nhap chuoi can ma hoa: ";
     getline(cin, banRo);
