@@ -35,7 +35,7 @@ string giaiMa(string banMa, string key) {
     return banRo;
 }
 
-int main() {
+main() {
     string banRo, key;
 
     cout << "Nhap chuoi can ma hoa: ";
