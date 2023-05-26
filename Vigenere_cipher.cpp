@@ -49,8 +49,8 @@ main() {
     string banMa = maHoa(banRo, khoa);
     cout << "Ban ma la: " << banMa << endl;
 
-    string banMaMaHoa = giaiMa(banMa, khoa);
-    cout << "Ban ro la: " << banMaMaHoa << endl;
+    string banMaGiaiMa = giaiMa(banMa, khoa);
+    cout << "Ban ro la: " << banMaGiaiMa << endl;
 
     return 0;
 }
