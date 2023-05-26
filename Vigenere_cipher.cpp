@@ -39,10 +39,10 @@ main() {
     string banRo, key;
 
     cout << "Nhap chuoi can ma hoa: ";
-    getline(cin, banRo);
+    getline(cin >> ws, banRo);
 
     cout << "Nhap khoa: ";
-    getline(cin, key);
+    getline(cin >> ws, key);
 
     string khoa = taoKhoa(banRo, key);
 
