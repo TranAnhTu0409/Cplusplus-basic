@@ -7,7 +7,8 @@ string taoKhoa(string banRo, string key) {
     while (key.size() < banRo.size()) {
         key += key;
     }
-    return key.substr(0, banRo.size());
+    key.resize(banRo.size());
+    return key;
 }
 
 string maHoa(string banRo, string key) {
