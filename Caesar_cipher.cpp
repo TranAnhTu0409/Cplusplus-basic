@@ -7,9 +7,9 @@ string maHoa(string banRo, int key) {
     string banMa = "";
     for (int i = 0; i < banRo.length(); i++) {
         if (isupper(banRo[i])) {
-            banMa += char((banRo[i] - 'A' + key) % 26 + 'A');
+            banMa += (banRo[i] - 'A' + key) % 26 + 'A';
         } else {
-            banMa += char((banRo[i] - 'a' + key) % 26 + 'a');
+            banMa += (banRo[i] - 'a' + key) % 26 + 'a';
         }
     }
     return banMa;
@@ -19,9 +19,9 @@ string giaiMa(string banMa, int key) {
     string banRo = "";
     for (int i = 0; i < banMa.length(); i++) {
         if (isupper(banMa[i])) {
-            banRo += char((banMa[i] - 'A' - key + 26) % 26 + 'A');
+            banRo += (banMa[i] - 'A' - key + 26) % 26 + 'A';
         } else {
-            banRo += char((banMa[i] - 'a' - key + 26) % 26 + 'a');
+            banRo += (banMa[i] - 'a' - key + 26) % 26 + 'a';
         }
     }
     return banRo;
