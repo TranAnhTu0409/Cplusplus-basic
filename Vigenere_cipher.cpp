@@ -3,80 +3,55 @@
 
 using namespace std;
 
-string P = "abcdefghijklmnopqrstuvwxyz";
-
-string mahoa(const string& s, const string& k) {
-    string tmp;
-    int l = s.length();
-    int x = k.length();
-    tmp.reserve(l);
-
-    for (int j = 0; j < l; j++) {
-        int roso = s[j] - 'a';
-        int makhoa = k[j % x] - 'a';
-        int maso = (roso + makhoa) % 26;
-        tmp.push_back(P[maso]);
+string taoKhoa(string banRo, string key) {
+    while (key.size() < banRo.size()) {
+        key += key;
     }
-
-    return tmp;
+    return key.substr(0, banRo.size());
 }
 
-void hienthi(const string& s) {
-    cout << s;
+string maHoa(string banRo, string key) {
+    string banMa = "";
+    for (int i = 0; i < banRo.length(); i++) {
+        if (isupper(banRo[i])) {
+            banMa += (banRo[i] + key[i] - 'A' - 'A') % 26 + 'A';
+        } else {
+            banMa += (banRo[i] + key[i] - 'a' - 'a') % 26 + 'a';
+        }
+    }
+    return banMa;
 }
 
-string giaima(const string& s, const string& k) {
-    string tmp;
-    int l = s.length();
-    int x = k.length();
-    tmp.reserve(l);
-
-    for (int j = 0; j < l; j++) {
-        int roso = s[j] - 'a';
-        int makhoa = k[j % x] - 'a';
-        int maso = (roso + 26 - makhoa) % 26;
-        tmp.push_back(P[maso]);
+string giaiMa(string banMa, string key) {
+    string banRo = "";
+    for (int i = 0; i < banMa.length(); i++) {
+        if (isupper(banMa[i])) {
+            banRo += (banMa[i] - key[i] + 26) % 26 + 'A';
+        } else {
+            banRo += (banMa[i] - key[i] + 26) % 26 + 'a';
+        }
     }
-
-    return tmp;
+    return banRo;
 }
 
 int main() {
-    int ch;
-    string s1, s2, k, s3;
+    string banRo;
+    string key;
 
-    cout << "Luu y: Khong de khoang trong khi nhap xau ky tu" << endl;
-    cout << "Nhap xau ki tu: ";
-    getline(cin, s1);
+    cout << "Nhap chuoi can ma hoa: ";
+    getline(cin, banRo);
 
-    cout << "Nhap khoa k: ";
-    getline(cin, k);
+    cout << "Nhap khoa: ";
+    getline(cin, key);
 
-    int l = s1.length();
+    string khoa = taoKhoa(banRo, key);
 
-    while (true) {
-        cout << "\n\nMENU";
-        cout << "\n[1].Ma hoa xau.";
-        cout << "\n[2].Giai ma xau.";
-        cout << "\n[3].Thoat.";
-        cout << "\nMoi ban chon: ";
-        cin >> ch;
+    string banMa = maHoa(banRo, khoa);
+    cout << "Ban ma la: " << banMa << endl;
 
-        switch (ch) {
-            case 1:
-                s2 = mahoa(s1, k);
-                cout << "Xau duoc ma hoa:\n";
-                hienthi(s2);
-                break;
+    string banMaMaHoa = giaiMa(banMa, khoa);
+    cout << "Ban ro la: " << banMaMaHoa << endl;
 
-            case 2:
-                s3 = giaima(s2, k);
-                cout << "Xau duoc giai ma:\n";
-                hienthi(s3);
-                break;
-
-            case 3:
-                return 0;
-        }
-    }
+    return 0;
 }
+
