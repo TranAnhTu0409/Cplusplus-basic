@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool isPrime(int num) {
+bool IsPrime(int num) {
 	if(num < 2) {
 		return false;
 	}
@@ -16,10 +16,10 @@ bool isPrime(int num) {
 	return true;
 }
 
-void findPrimes(int start, int end) {
+void FindPrimes(int start, int end) {
 	cout << "\nPrime number from " << start << " to " << end << " is: ";
 	for(int num = start; num <= end; num++) {
-		if(isPrime(num)) {
+		if(IsPrime(num)) {
 			cout << num << " ";
 		}
 	}
@@ -30,6 +30,6 @@ main() {
 	cout << "\nEnter start: "; cin >> start;
 	cout << "\nEnter end: "; cin >> end;
 	
-	findPrimes(start, end);
+	FindPrimes(start, end);
 	return 0;
 }
