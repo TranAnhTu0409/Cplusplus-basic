@@ -17,7 +17,7 @@ bool isPrime(int num) {
 }
 
 void findPrimes(int start, int end) {
-	cout << "\nEnter number from " << start << " to " << end << " is: ";
+	cout << "\nPrime number from " << start << " to " << end << " is: ";
 	for(int num = start; num <= end; num++) {
 		if(isPrime(num)) {
 			cout << num << " ";
