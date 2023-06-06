@@ -32,7 +32,7 @@ main() {
     int key;
     
     cout << "Nhap chuoi can ma hoa: ";
-    getline(cin, banRo);
+    getline(cin >> ws, banRo);
     
     cout << "Nhap khoa: ";
     cin >> key;
