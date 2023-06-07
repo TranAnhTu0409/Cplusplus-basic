@@ -25,9 +25,9 @@ string affineCipherMaHoa(const string& banRo, int a, int b) {
     string banMa;
 
     int m = 26;  
-
+	// dam bao a va m la nguyen to cung nhau
     if (ucln(a, m) != 1) {
-        cout << "Khoá không h?p l?!" << endl;
+        cout << "Khoa khong hop le!" << endl;
         return banMa;
     }
 
@@ -51,12 +51,12 @@ int main() {
     getline(cin, banRo);
 
     int a, b;
-    cout << "Nh?p khoá a: ";
+    cout << "Nhap khoa a: ";
     cin >> a;
-    cout << "Nh?p khoá b: ";
+    cout << "Nhap khoa b: ";
     cin >> b;
     string vanBanMaHoa = affineCipherMaHoa(banRo, a, b);
-    cout << "Chu?i mã hóa: " << vanBanMaHoa << endl;
+    cout << "Chuoi ma hoa: " << vanBanMaHoa << endl;
     return 0;
 }
 
