@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int gcd(int a, int b) {
+int ucln(int a, int b) {
     while (b != 0) {
         int temp = b;
         b = a % b;
@@ -12,7 +12,7 @@ int gcd(int a, int b) {
     return a;
 }
 
-int modInverse(int a, int m) {
+int modNghichDao(int a, int m) {
     for (int x = 1; x < m; x++) {
         if ((a * x) % m == 1) {
             return x;
@@ -21,53 +21,42 @@ int modInverse(int a, int m) {
     return -1;
 }
 
-string affineCipherEncrypt(const string& plaintext, int a, int b) {
-    string ciphertext;
+string affineCipherMaHoa(const string& banRo, int a, int b) {
+    string banMa;
 
-    int m = 26;  // So chu cai trong bang chu cai Tieng Anh
+    int m = 26;  
 
-    // Dam bao a va m nguyen to cung nhau
-    if (gcd(a, m) != 1) {
-        cout << "Khóa không h?p l?!" << endl;
-        return ciphertext;
+    if (ucln(a, m) != 1) {
+        cout << "Khoá không h?p l?!" << endl;
+        return banMa;
     }
 
-    // Ma hoa tung ky tu trong plaintext
-    for (char c : plaintext) {
+    for (char c : banRo) {
         if (isalpha(c)) {
-            // Chuuyen ky tu thanh chu trong bang chu cai
-            int charNum = toupper(c) - 'A';
-
-            // Ap dung cong thuc ma hoa affine cipher
-            int encryptedCharNum = (a * charNum + b) % m;
-
-            // Chuyen so thanh ky tu trong bang chu cai
-            char encryptedChar = encryptedCharNum + 'A';
-
-            ciphertext += encryptedChar;
+            int soKyTu = toupper(c) - 'A';
+            int soKyTuMaHoa = (a * soKyTu + b) % m;
+            char kyTuMaHoa = soKyTuMaHoa + 'A';
+            banMa += kyTuMaHoa;
         } else {
-            ciphertext += c;
+            banMa += c;
         }
     }
 
-    return ciphertext;
+    return banMa;
 }
 
 int main() {
-    string plaintext;
-    cout << "Nhuoi can ma hoa: ";
-    getline(cin, plaintext);
+    string banRo;
+    cout << "Nhap chuoi can ma hoa: ";
+    getline(cin, banRo);
 
     int a, b;
-    cout << "Nh?p khóa a: ";
+    cout << "Nh?p khoá a: ";
     cin >> a;
-    cout << "Nh?p khóa b: ";
+    cout << "Nh?p khoá b: ";
     cin >> b;
-
-    string ciphertext = affineCipherEncrypt(plaintext, a, b);
-
-    cout << "Chu?i mã hóa: " << ciphertext << endl;
-
+    string vanBanMaHoa = affineCipherMaHoa(banRo, a, b);
+    cout << "Chu?i mã hóa: " << vanBanMaHoa << endl;
     return 0;
 }
 
