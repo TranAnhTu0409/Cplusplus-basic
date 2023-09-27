@@ -4,9 +4,9 @@ using namespace std;
 
 void bubbleSort(int arr[], int size) {
 	for(int i = 0; i < size - 1; i++) {
-		for(int j = i + 1; j < size - 1; j++) {
-			if(arr[i] > arr[j]) {
-				swap(arr[i], arr[j]);
+		for(int j = 0; j < size - i - 1; j++) {
+			if(arr[j] > arr[j + ]) {
+				swap(arr[j], arr[j + 1]);
 			}
 		}
 	}
